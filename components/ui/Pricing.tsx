@@ -26,8 +26,8 @@ const PLANS: Plan[] = [
         desc: 'بداية قوية للمتاجر الناشئة',
         period: '/ شهر',
         tiers: [
-            { credits: 1000, price: 29 },
-            { credits: 2000, price: 59 }
+            { credits: 1000, price: 99 },
+            { credits: 2000, price: 179 }
         ],
         features: [
             'جميع أدوات صناعة المحتوى الأساسية',
@@ -44,10 +44,10 @@ const PLANS: Plan[] = [
         desc: 'الحل المتكامل للتجار وصناع المحتوى',
         period: '/ شهر',
         tiers: [
-            { credits: 4000, price: 99 },
-            { credits: 8000, price: 189 },
-            { credits: 16000, price: 349 },
-            { credits: 32000, price: 699 }
+            { credits: 4000, price: 299 },
+            { credits: 8000, price: 549 },
+            { credits: 16000, price: 999 },
+            { credits: 32000, price: 1899 }
         ],
         features: [
             'كل ما في سولو',
@@ -128,12 +128,12 @@ const PlanCard: React.FC<{ plan: Plan; isAnnual: boolean }> = ({ plan, isAnnual 
                             <div className="flex flex-col items-center md:items-start w-full">
                                 <div className="flex items-baseline gap-2 justify-center md:justify-start w-full">
                                     <span className={`text-3xl font-black font-sans tracking-tight ${textPrimary}`}>
-                                        ${price}
+                                        {price}
                                     </span>
-                                    <span className={`text-sm font-bold ${textSecondary}`}>دولار</span>
+                                    <span className={`text-sm font-bold ${textSecondary}`}>ريال</span>
                                     {isAnnual && (
                                         <span className={`text-xs font-medium line-through decoration-red-500/50 decoration-2 text-red-400/80 mr-1`}>
-                                            ${monthlyPrice}
+                                            {monthlyPrice}
                                         </span>
                                     )}
                                 </div>
@@ -170,7 +170,7 @@ const PlanCard: React.FC<{ plan: Plan; isAnnual: boolean }> = ({ plan, isAnnual 
                                                 className={`w-full flex items-center justify-between px-4 py-3 text-sm transition-colors ${idx === selectedTierIndex ? (isPro ? 'bg-white/10' : 'bg-gray-50') : (isPro ? 'hover:bg-white/5' : 'hover:bg-gray-50')}`}
                                             >
                                                 <span className={`font-bold font-sans ${textPrimary}`}>{tier.credits.toLocaleString('en-US')} Cr</span>
-                                                <span className={`font-medium font-sans ${textSecondary}`}>${tierPrice} دولار</span>
+                                                <span className={`font-medium font-sans ${textSecondary}`}>{tierPrice} ريال</span>
                                             </button>
                                         );
                                     })}

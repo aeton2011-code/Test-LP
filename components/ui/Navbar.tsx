@@ -61,8 +61,11 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
         >
           {/* Logo - Tech & Minimal */}
           <div className="flex items-center cursor-pointer gap-2" onClick={(e) => handleLinkClick(e, 'home')}>
-             <div className="w-8 h-8 md:w-6 md:h-6 bg-white rounded flex items-center justify-center">
-                <div className="w-4 h-4 md:w-3 md:h-3 bg-black rounded-[2px] transform rotate-45" />
+             <div className="w-8 h-8 md:w-6 md:h-6 text-white">
+                <svg viewBox="300 300 500 500" fill="currentColor" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M497,325.4c8.8-1.8,14,2,20.3,7.3,49.7,48.5,102.4,94.1,152.4,142.3,10.1,9.8,23.8,19.2,14.7,34.7-3.6,6.2-18.2,17.1-24.2,22.8-48.1,45.8-96.6,91.2-144.8,136.9-7.8,6.7-17.1,7.8-25.5,1.5-13.8-10.6-32.2-29.3-45-41.9-10.4-10.3-14.9-14.4-13.3-30.4s6.1-29.8,9-33.9c5.3-7.5,14.6-5.1,20.8-.2s28.1,30.6,37.4,31.5,12.9-3.7,18.5-8.5c27.2-23.4,52-52,78.9-75.9,13.5-14.9-7.2-29.4-17.5-39.5-21.7-21.3-45-40.9-66.4-62.4-14.8-12.8-27.6,4.6-38,14s-14.6,17-22.5,17.6-9.4-1.8-11.7-5.3-8.1-28.3-8.6-33.3c-1.9-19.3,6-23.2,18.3-35.4s27.9-28.5,39.5-37.5c1.8-1.4,5.6-3.8,7.7-4.2Z"/>
+                  <path d="M361.1,451.3c7-1.3,11.1,1,16.3,5.2,7.8,6.3,29.9,26.2,35.5,33.5,11,14.3-2.8,23-12.5,32.5-5.3,5.2-24.6,24.1-29.8,26.2s-9.1,1.6-14.1-1.3-39.2-35.7-41.5-39.4c-4.1-6.6-2.1-12.8,2.4-18.5s27.8-27.5,36-34,4.7-3.7,7.7-4.2Z"/>
+                </svg>
              </div>
              <span className="font-bold text-lg md:text-base tracking-tight text-white">Sadem</span>
           </div>
@@ -92,8 +95,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
             <button 
-                onClick={() => onNavigate('dashboard')}
-                className={`text-[13px] hover:text-white transition-colors font-medium px-2 ${currentPage === 'dashboard' ? 'text-white' : 'text-white/70'}`}
+                className="text-[13px] transition-colors font-medium px-2 text-white/50 cursor-default"
             >
               دخول
             </button>
@@ -146,8 +148,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
                 اشترك الآن
               </button>
               <button 
-                  onClick={() => { setMobileMenu(false); onNavigate('dashboard'); }}
-                  className="w-full py-4 text-white/60 font-medium text-sm"
+                  className="w-full py-4 text-white/40 font-medium text-sm cursor-default"
               >
                 تسجيل الدخول
               </button>

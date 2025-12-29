@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { 
     Magnet, PenTool, ShoppingBag, Video, Mic, Users, 
     BarChart3, Calendar, Lightbulb, MessageSquare, 
-    Layout, Search, Zap, Cpu, 
+    Layout, Search, 
     Globe, Command, Sparkles,
     FileText, TrendingUp, MonitorPlay, Eye, Layers
 } from 'lucide-react';
@@ -75,8 +75,7 @@ const TOOLS = [
     { id: 7, title: "تحليل المتجر (Store Analyzer)", desc: "فحص تجربة المستخدم (UX) وعناصر الثقة.", cat: "analysis", icon: Globe },
     { id: 8, title: "استراتيجية المنتج", desc: "تحديد التمركز (Positioning) والميزة التنافسية.", cat: "analysis", icon: TrendingUp },
     { id: 9, title: "محلل السكربتات", desc: "اكتشاف نقاط الضعف في النص قبل التصوير.", cat: "analysis", icon: Search },
-    { id: 10, title: "محلل الحملات", desc: "قرارات مالية صارمة (إيقاف/زيادة) بناءً على ROAS.", cat: "analysis", icon: Zap },
-
+    
     // 3. Planning (التخطيط الإبداعي)
     { id: 11, title: "محرك الأفكار", desc: "أفكار لا نهائية مربوطة بالترندات وطرق التصوير.", cat: "planning", icon: Sparkles },
     { id: 12, title: "خطة المحتوى", desc: "جدول نشر شهري (ترفيهي، تعليمي، بيعي).", cat: "planning", icon: Calendar },

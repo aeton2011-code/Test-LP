@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Play, Image as ImageIcon, Sparkles, Wand2, ArrowLeft } from 'lucide-react';
+import { Play, Image as ImageIcon, ArrowLeft } from 'lucide-react';
 
 const VeoSection: React.FC = () => {
   return (

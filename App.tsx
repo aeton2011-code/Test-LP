@@ -2,13 +2,12 @@
 import React, { useState } from 'react';
 import Navbar from './components/ui/Navbar';
 import Hero from './components/Hero';
-// BentoFeatures removed
 import VeoSection from './components/ui/VeoSection';
 import AdStudioSection from './components/ui/AdStudioSection';
 import SecuritySection from './components/ui/SecuritySection';
 import TokenSection from './components/TokenSection'; 
 import Pricing from './components/ui/Pricing';
-import Footer from './components/Footer';
+import Footer from './components/ui/Footer';
 import { TrustedBy, Testimonials, WhySadem } from './components/ui/SademSections';
 import Workflow from './components/ui/Workflow';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -22,9 +21,8 @@ import FeaturesPage from './components/pages/FeaturesPage';
 import Updates from './components/pages/Updates';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import TermsOfUse from './components/pages/TermsOfUse';
-import Dashboard from './components/pages/Dashboard';
 
-type Page = 'home' | 'pricing' | 'blog' | 'help' | 'about' | 'contact' | 'features' | 'updates' | 'privacy' | 'terms' | 'dashboard';
+type Page = 'home' | 'pricing' | 'blog' | 'help' | 'about' | 'contact' | 'features' | 'updates' | 'privacy' | 'terms';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -39,9 +37,6 @@ const App: React.FC = () => {
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: -10 },
   };
-
-  // Hide standard layout elements for dashboard to make it feel like an app
-  const isDashboard = currentPage === 'dashboard';
 
   return (
     <div className="min-h-screen bg-[#030304] text-white font-sans overflow-x-hidden relative selection:bg-primary/30 selection:text-white" dir="rtl">
@@ -63,7 +58,7 @@ const App: React.FC = () => {
       
       <Navbar onNavigate={handleNavigate} currentPage={currentPage} />
 
-      <main className={`relative z-10 flex flex-col items-center w-full min-h-screen ${isDashboard ? 'bg-[#030304]' : ''}`}>
+      <main className="relative z-10 flex flex-col items-center w-full min-h-screen">
         <AnimatePresence mode="wait">
             
             {/* HOME */}
@@ -75,29 +70,14 @@ const App: React.FC = () => {
                 className="w-full flex flex-col gap-0"
               >
                 <Hero />
-                {/* Spacer removed for tighter spacing */}
                 <TrustedBy />
                 <WhySadem />
                 <Workflow />
-                {/* Removed BentoFeatures from here */}
                 <TokenSection />
                 <AdStudioSection />
                 <VeoSection />
                 <Testimonials />
                 <SecuritySection />
-              </motion.div>
-            )}
-
-            {/* DASHBOARD */}
-            {currentPage === 'dashboard' && (
-              <motion.div 
-                key="dashboard"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="w-full"
-              >
-                 <Dashboard />
               </motion.div>
             )}
 
@@ -165,8 +145,7 @@ const App: React.FC = () => {
         </AnimatePresence>
       </main>
       
-      {/* Hide footer on Dashboard for app-like feel */}
-      {!isDashboard && <Footer showCTA={currentPage === 'home'} onNavigate={handleNavigate} />}
+      <Footer showCTA={currentPage === 'home'} onNavigate={handleNavigate} />
     </div>
   );
 };

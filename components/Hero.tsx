@@ -12,6 +12,16 @@ const Hero: React.FC = () => {
       
       <div className="container mx-auto max-w-7xl text-center relative z-10 flex flex-col items-center px-4 md:px-6">
         
+        {/* Saudi Made Badge */}
+        <motion.div
+           initial={{ opacity: 0, y: 10 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.6, ease: "easeOut" }}
+           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] md:text-xs font-bold mb-6 backdrop-blur-md tracking-wide hover:bg-emerald-500/20 transition-colors select-none"
+        >
+             <span>🇸🇦 صناعة سعودية 100٪</span>
+        </motion.div>
+
         {/* Headline - Optimized typography for single-line second sentence */}
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}

@@ -54,8 +54,8 @@ export const WhySadem: React.FC = () => {
                 {/* Header */}
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                        ليش سديم غير؟ <br />
-                        <span className="text-text-secondary text-2xl md:text-4xl">لأنه صُمّم لقرارات البيع… مو لكل شي ولا لأي شي</span>
+                        ليش سديم مختلف؟<br />
+                        <span className="text-text-secondary text-2xl md:text-4xl">لأنه يقدّم محتوى يبيع فعلًا.</span>
                     </h2>
                 </div>
 
@@ -117,7 +117,7 @@ export const WhySadem: React.FC = () => {
                                     <CheckCircle size={16} className="text-green-500 shrink-0 mt-0.5 md:mt-1 md:w-6 md:h-6" />
                                     <div>
                                         <h4 className="text-xs md:text-xl font-bold text-white group-hover:text-primary transition-colors">مستشار نمو.</h4>
-                                        <p className="text-text-secondary mt-1 text-[10px] md:text-base leading-relaxed">يعلمك وين الفلوس قاعدة تضيع.</p>
+                                        <p className="text-text-secondary mt-1 text-[10px] md:text-base leading-relaxed">يحوّل الحيرة إلى خطة واضحة.</p>
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +152,7 @@ export const WhySadem: React.FC = () => {
                                 <XCircle size={16} className="text-zinc-600 shrink-0 mt-0.5 md:mt-1 md:w-6 md:h-6" />
                                 <div>
                                     <h4 className="text-xs md:text-xl font-bold text-zinc-400">منفذ أوامر.</h4>
-                                    <p className="text-zinc-600 mt-1 text-[10px] md:text-base leading-relaxed">هدفه يجمالك وتكون راضي عنه ما يبادر.</p>
+                                    <p className="text-zinc-600 mt-1 text-[10px] md:text-base leading-relaxed">هدفه يجمالك وتكون راضي عنه، لم يصنع للتسويق او المبيعات.</p>
                                 </div>
                             </div>
                         </div>

@@ -10,7 +10,7 @@ const About: React.FC = () => {
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
                 نبني عقلًا رقمياً.. <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary to-white">بقلب عربي.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary to-white">بقلب سعودي.</span>
             </h1>
         </div>
 
@@ -38,12 +38,12 @@ const About: React.FC = () => {
                 </div>
                 <div className="text-center">
                     <h3 className="text-4xl font-bold text-white mb-2">100%</h3>
-                    <p className="text-sm">ابتكار عربي</p>
+                    <p className="text-sm">ابتكار سعودي</p>
                 </div>
             </div>
 
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
-                مهمتنا تمكين كل تاجر، مهما كان حجمه، من امتلاك قوة وكالة تسويق عالمية في جيبه، وبتكلفة كوب قهوة يومياً.
+                مهمتنا تمكين كل تاجر وصانع محتوى، مهما كان حجمه، من امتلاك قوة وكالة تسويق عالمية في جيبه، وبتكلفة كوب قهوة يومياً.
             </motion.p>
         </div>
     </section>

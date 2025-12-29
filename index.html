@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sadem - AI Marketing OS</title>
-    <meta name="description" content="Sadem - The AI Marketing Operating System for Saudi E-commerce." />
+    <meta name="description" content="Sadem - The AI Marketing Operating System for Global E-commerce." />
     
     <!-- Google Fonts: IBM Plex Sans Arabic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,6 +40,9 @@
               'shimmer': 'shimmer 2.5s linear infinite',
               'float': 'float 6s ease-in-out infinite',
               'marquee': 'marquee 60s linear infinite',
+              'aurora': 'aurora 60s linear infinite',
+              'beam': 'beam 2s linear infinite',
+              'scan': 'scan 3s ease-in-out infinite',
             },
             keyframes: {
               shimmer: {
@@ -53,6 +56,18 @@
               marquee: {
                 '0%': { transform: 'translateX(0%)' },
                 '100%': { transform: 'translateX(-50%)' },
+              },
+              aurora: {
+                from: { backgroundPosition: '50% 50%, 50% 50%' },
+                to: { backgroundPosition: '350% 50%, 350% 50%' },
+              },
+              beam: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' },
+              },
+              scan: {
+                '0%, 100%': { top: '0%' },
+                '50%': { top: '100%' },
               }
             }
           }
@@ -93,6 +108,17 @@
       }
       .custom-scrollbar::-webkit-scrollbar-thumb:hover {
         background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Aurora Effect Utilities */
+      .aurora-bg {
+        background-image: 
+          repeating-linear-gradient(100deg, #000 0%, #000 7%, transparent 10%, transparent 12%, #000 16%),
+          repeating-linear-gradient(100deg, #006CD9 10%, #60a5fa 15%, #006CD9 20%, #4c1d95 25%, #006CD9 30%);
+        background-size: 300% 100%;
+        opacity: 0.15;
+        filter: blur(80px);
+        mix-blend-mode: screen;
       }
     </style>
   <script type="importmap">

@@ -91,7 +91,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
-            <button className="text-[13px] text-white/70 hover:text-white transition-colors font-medium px-2">
+            <button 
+                onClick={() => onNavigate('dashboard')}
+                className={`text-[13px] hover:text-white transition-colors font-medium px-2 ${currentPage === 'dashboard' ? 'text-white' : 'text-white/70'}`}
+            >
               دخول
             </button>
             <button 
@@ -136,10 +139,16 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
                   الأسعار
               </a>
               <div className="h-px bg-white/10 my-2 mx-4" />
-              <button className="w-full py-4 bg-primary text-white font-bold rounded-xl mt-2 text-base active:scale-[0.98] transition-transform">
-                ابدأ التجربة المجانية
+              <button 
+                onClick={(e) => handleLinkClick(e, 'pricing')}
+                className="w-full py-4 bg-primary text-white font-bold rounded-xl mt-2 text-base active:scale-[0.98] transition-transform"
+              >
+                اشترك الآن
               </button>
-              <button className="w-full py-4 text-white/60 font-medium text-sm">
+              <button 
+                  onClick={() => { setMobileMenu(false); onNavigate('dashboard'); }}
+                  className="w-full py-4 text-white/60 font-medium text-sm"
+              >
                 تسجيل الدخول
               </button>
             </div>

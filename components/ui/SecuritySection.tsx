@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { ShieldCheck, Lock, Database } from 'lucide-react';
+import { ShieldCheck, Lock, Database, UserCog } from 'lucide-react';
 
 const SecuritySection: React.FC = () => {
   return (
@@ -19,20 +20,20 @@ const SecuritySection: React.FC = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col items-center">
-                <Lock size={24} className="text-text-tertiary mb-4" />
-                <h3 className="text-white font-bold mb-2">تشفير كامل</h3>
-                <p className="text-sm text-text-tertiary">بيانات مشفرة بالكامل عند النقل والتخزين.</p>
+            <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col items-center hover:bg-white/[0.04] transition-colors">
+                <Database size={28} className="text-green-400 mb-5" />
+                <h3 className="text-white text-lg font-bold mb-3">بياناتك معزولة لكل حساب</h3>
+                <p className="text-sm text-text-secondary leading-relaxed">قاعدة بياناتك خاصة بك تماماً ولا تختلط ببيانات المتاجر الأخرى.</p>
             </div>
-            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col items-center">
-                <Database size={24} className="text-text-tertiary mb-4" />
-                <h3 className="text-white font-bold mb-2">عزل البيانات</h3>
-                <p className="text-sm text-text-tertiary">بياناتك معزولة تماماً عن بيانات المتاجر الأخرى.</p>
+            <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col items-center hover:bg-white/[0.04] transition-colors">
+                <Lock size={28} className="text-green-400 mb-5" />
+                <h3 className="text-white text-lg font-bold mb-3">لا تُباع ولا تُستخدم تسويقياً</h3>
+                <p className="text-sm text-text-secondary leading-relaxed">بياناتك سرية. لا نبيعها ولا نستخدمها في إعلاناتنا أو تدريب نماذجنا.</p>
             </div>
-            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col items-center">
-                <ShieldCheck size={24} className="text-text-tertiary mb-4" />
-                <h3 className="text-white font-bold mb-2">لا تدريب</h3>
-                <p className="text-sm text-text-tertiary">لا نستخدم محتواك لتدريب نماذجنا إطلاقاً.</p>
+            <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col items-center hover:bg-white/[0.04] transition-colors">
+                <UserCog size={28} className="text-green-400 mb-5" />
+                <h3 className="text-white text-lg font-bold mb-3">التحكم الكامل بربط المنصات</h3>
+                <p className="text-sm text-text-secondary leading-relaxed">أنت من يقرر متى تربط (أو تفصل) منصات مثل تيك توك.</p>
             </div>
         </div>
       </div>

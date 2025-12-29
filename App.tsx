@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import Navbar from './components/ui/Navbar';
 import Hero from './components/Hero';
-import BentoFeatures from './components/Intro'; 
+// BentoFeatures removed
 import VeoSection from './components/ui/VeoSection';
+import AdStudioSection from './components/ui/AdStudioSection';
 import SecuritySection from './components/ui/SecuritySection';
 import TokenSection from './components/TokenSection'; 
 import Pricing from './components/ui/Pricing';
@@ -21,8 +22,9 @@ import FeaturesPage from './components/pages/FeaturesPage';
 import Updates from './components/pages/Updates';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import TermsOfUse from './components/pages/TermsOfUse';
+import Dashboard from './components/pages/Dashboard';
 
-type Page = 'home' | 'pricing' | 'blog' | 'help' | 'about' | 'contact' | 'features' | 'updates' | 'privacy' | 'terms';
+type Page = 'home' | 'pricing' | 'blog' | 'help' | 'about' | 'contact' | 'features' | 'updates' | 'privacy' | 'terms' | 'dashboard';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -38,21 +40,30 @@ const App: React.FC = () => {
     exit: { opacity: 0, y: -10 },
   };
 
+  // Hide standard layout elements for dashboard to make it feel like an app
+  const isDashboard = currentPage === 'dashboard';
+
   return (
-    <div className="min-h-screen bg-[#030304] text-white font-sans overflow-x-hidden relative" dir="rtl">
+    <div className="min-h-screen bg-[#030304] text-white font-sans overflow-x-hidden relative selection:bg-primary/30 selection:text-white" dir="rtl">
       
-      {/* --- ATMOSPHERIC LIGHTING --- */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-          {/* Top Center - Main Illumination */}
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[60vw] h-[500px] bg-primary/5 blur-[120px] rounded-[100%] opacity-30"></div>
+      {/* --- PREMIUM ATMOSPHERIC LIGHTING (AURORA) --- */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+          {/* Animated Aurora Gradient */}
+          <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] aurora-bg animate-aurora"></div>
           
-          {/* Subtle Grid - Structural Feel */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+          {/* Deep Black Overlay to keep contrast high */}
+          <div className="absolute inset-0 bg-[#030304]/80"></div>
+
+          {/* Grid Pattern - Subtle Technical Feel */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30"></div>
+          
+          {/* Noise Texture for Realism/Film Grain */}
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay"></div>
       </div>
       
       <Navbar onNavigate={handleNavigate} currentPage={currentPage} />
 
-      <main className="relative z-10 flex flex-col items-center w-full min-h-screen">
+      <main className={`relative z-10 flex flex-col items-center w-full min-h-screen ${isDashboard ? 'bg-[#030304]' : ''}`}>
         <AnimatePresence mode="wait">
             
             {/* HOME */}
@@ -64,15 +75,29 @@ const App: React.FC = () => {
                 className="w-full flex flex-col gap-0"
               >
                 <Hero />
-                <div className="w-full max-w-7xl mx-auto h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+                {/* Spacer removed for tighter spacing */}
                 <TrustedBy />
                 <WhySadem />
                 <Workflow />
-                <BentoFeatures />
+                {/* Removed BentoFeatures from here */}
                 <TokenSection />
+                <AdStudioSection />
                 <VeoSection />
                 <Testimonials />
                 <SecuritySection />
+              </motion.div>
+            )}
+
+            {/* DASHBOARD */}
+            {currentPage === 'dashboard' && (
+              <motion.div 
+                key="dashboard"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="w-full"
+              >
+                 <Dashboard />
               </motion.div>
             )}
 
@@ -140,7 +165,8 @@ const App: React.FC = () => {
         </AnimatePresence>
       </main>
       
-      <Footer showCTA={currentPage === 'home'} onNavigate={handleNavigate} />
+      {/* Hide footer on Dashboard for app-like feel */}
+      {!isDashboard && <Footer showCTA={currentPage === 'home'} onNavigate={handleNavigate} />}
     </div>
   );
 };

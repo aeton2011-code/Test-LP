@@ -22,12 +22,12 @@ interface Plan {
 const PLANS: Plan[] = [
     {
         id: 'plus',
-        name: 'بلس (Plus)',
+        name: 'سولو (Solo)',
         desc: 'بداية قوية للمتاجر الناشئة',
         period: '/ شهر',
         tiers: [
-            { credits: 1000, price: 99 },
-            { credits: 2000, price: 198 }
+            { credits: 1000, price: 29 },
+            { credits: 2000, price: 59 }
         ],
         features: [
             'جميع أدوات صناعة المحتوى الأساسية',
@@ -40,19 +40,19 @@ const PLANS: Plan[] = [
     },
     {
         id: 'pro',
-        name: 'برو (Pro)',
+        name: 'نمو (Growth)',
         desc: 'الحل المتكامل للتجار وصناع المحتوى',
         period: '/ شهر',
         tiers: [
-            { credits: 4000, price: 299 },
-            { credits: 8000, price: 598 },
-            { credits: 16000, price: 1196 },
-            { credits: 32000, price: 2392 }
+            { credits: 4000, price: 99 },
+            { credits: 8000, price: 189 },
+            { credits: 16000, price: 349 },
+            { credits: 32000, price: 699 }
         ],
         features: [
-            'كل ما في بلس',
+            'كل ما في سولو',
             'ستديو الإعلانات (فائق)',
-            'محرك الفيديو (Veo)',
+            'محرك الفيديو',
             'تحليل الحملات المتقدم (قريباً)',
             'دعم فني سريع',
             'أسرع وقت معالجة (Fast Lane)',
@@ -96,12 +96,12 @@ const PlanCard: React.FC<{ plan: Plan; isAnnual: boolean }> = ({ plan, isAnnual 
     return (
         <div className={`relative flex flex-col h-full transition-all duration-300 rounded-[20px] md:rounded-[24px] overflow-hidden ${isPro ? 'shadow-2xl shadow-black/50 ring-1 ring-white/10 scale-[1.02] z-10' : 'hover:shadow-lg'}`}>
             
-            <div className={`flex flex-col h-full p-4 md:p-8 ${cardBg} border`}>
+            <div className={`flex flex-col h-full p-6 md:p-8 ${cardBg} border`}>
                 
                 {/* Header */}
                 <div className="mb-4 md:mb-6">
                     <div className="flex flex-col lg:flex-row lg:items-center justify-between items-start mb-2 gap-2">
-                        <h3 className={`text-lg md:text-2xl font-bold ${textPrimary}`}>{plan.name}</h3>
+                        <h3 className={`text-xl md:text-2xl font-bold ${textPrimary}`}>{plan.name}</h3>
                         {plan.recommended && (
                             <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 shadow-lg shadow-blue-900/20 border border-blue-400/20 self-start lg:self-auto">
                                 <Sparkles size={10} className="text-white" fill="currentColor" />
@@ -111,7 +111,7 @@ const PlanCard: React.FC<{ plan: Plan; isAnnual: boolean }> = ({ plan, isAnnual 
                             </div>
                         )}
                     </div>
-                    <p className={`text-xs md:text-sm font-medium leading-relaxed ${textSecondary} min-h-[40px] line-clamp-2 md:line-clamp-none`}>{plan.desc}</p>
+                    <p className={`text-sm font-medium leading-relaxed ${textSecondary} min-h-[40px]`}>{plan.desc}</p>
                 </div>
 
                 {/* Dynamic Pricing Selector */}
@@ -123,31 +123,31 @@ const PlanCard: React.FC<{ plan: Plan; isAnnual: boolean }> = ({ plan, isAnnual 
                         <button 
                             onClick={() => plan.tiers.length > 1 && setIsDropdownOpen(!isDropdownOpen)}
                             disabled={plan.tiers.length <= 1}
-                            className={`w-full p-3 md:p-4 flex flex-col md:flex-row items-center justify-between text-center md:text-right gap-2 ${plan.tiers.length > 1 ? 'cursor-pointer' : 'cursor-default'}`}
+                            className={`w-full p-4 flex flex-col md:flex-row items-center justify-between text-center md:text-right gap-2 ${plan.tiers.length > 1 ? 'cursor-pointer' : 'cursor-default'}`}
                         >
                             <div className="flex flex-col items-center md:items-start w-full">
                                 <div className="flex items-baseline gap-2 justify-center md:justify-start w-full">
-                                    <span className={`text-2xl md:text-3xl font-black font-sans tracking-tight ${textPrimary}`}>
-                                        {price.toLocaleString('en-US')}
+                                    <span className={`text-3xl font-black font-sans tracking-tight ${textPrimary}`}>
+                                        ${price}
                                     </span>
-                                    <span className={`text-xs md:text-sm font-bold ${textSecondary}`}>ريال</span>
+                                    <span className={`text-sm font-bold ${textSecondary}`}>دولار</span>
                                     {isAnnual && (
                                         <span className={`text-xs font-medium line-through decoration-red-500/50 decoration-2 text-red-400/80 mr-1`}>
-                                            {monthlyPrice}
+                                            ${monthlyPrice}
                                         </span>
                                     )}
                                 </div>
-                                <span className={`text-[10px] md:text-xs ${textSecondary} mt-0.5 font-medium`}>
+                                <span className={`text-xs ${textSecondary} mt-0.5 font-medium`}>
                                     {isAnnual ? '/ شهر (يدفع سنوياً)' : '/ شهر'}
                                 </span>
                             </div>
                             
                             <div className="flex items-center justify-center gap-1 w-full md:w-auto border-t md:border-t-0 border-current/5 pt-2 md:pt-0 mt-1 md:mt-0">
-                                <span className={`text-xs md:text-sm font-bold font-sans whitespace-nowrap ${accentColor}`}>
+                                <span className={`text-sm font-bold font-sans whitespace-nowrap ${accentColor}`}>
                                     {currentTier.credits.toLocaleString('en-US')} Cr
                                 </span>
                                 {plan.tiers.length > 1 && (
-                                    <ChevronDown className={`w-3 h-3 md:w-4 md:h-4 ${textSecondary} transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                                    <ChevronDown className={`w-4 h-4 ${textSecondary} transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
                                 )}
                             </div>
                         </button>
@@ -167,10 +167,10 @@ const PlanCard: React.FC<{ plan: Plan; isAnnual: boolean }> = ({ plan, isAnnual 
                                             <button
                                                 key={idx}
                                                 onClick={() => handleTierSelect(idx)}
-                                                className={`w-full flex items-center justify-between px-3 py-2 md:px-4 md:py-3 text-xs md:text-sm transition-colors ${idx === selectedTierIndex ? (isPro ? 'bg-white/10' : 'bg-gray-50') : (isPro ? 'hover:bg-white/5' : 'hover:bg-gray-50')}`}
+                                                className={`w-full flex items-center justify-between px-4 py-3 text-sm transition-colors ${idx === selectedTierIndex ? (isPro ? 'bg-white/10' : 'bg-gray-50') : (isPro ? 'hover:bg-white/5' : 'hover:bg-gray-50')}`}
                                             >
                                                 <span className={`font-bold font-sans ${textPrimary}`}>{tier.credits.toLocaleString('en-US')} Cr</span>
-                                                <span className={`font-medium font-sans ${textSecondary}`}>{tierPrice} ريال</span>
+                                                <span className={`font-medium font-sans ${textSecondary}`}>${tierPrice} دولار</span>
                                             </button>
                                         );
                                     })}
@@ -182,11 +182,11 @@ const PlanCard: React.FC<{ plan: Plan; isAnnual: boolean }> = ({ plan, isAnnual 
 
                 {/* Features List */}
                 <div className={`flex-1 pt-4 md:pt-6 border-t ${isPro ? 'border-white/10' : 'border-gray-100'}`}>
-                    <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+                    <ul className="space-y-4 mb-8">
                         {plan.features.map((feat, i) => (
-                            <li key={i} className={`flex items-start gap-2 md:gap-3 text-[10px] md:text-xs font-medium leading-relaxed ${textSecondary}`}>
-                                <div className={`mt-0.5 min-w-[16px] w-[16px] h-[16px] md:min-w-[18px] md:w-[18px] md:h-[18px] rounded-full flex items-center justify-center shrink-0 ${featureIconBg}`}>
-                                    <Check className="w-2.5 h-2.5 md:w-3 md:h-3" />
+                            <li key={i} className={`flex items-start gap-3 text-xs md:text-sm font-medium leading-relaxed ${textSecondary}`}>
+                                <div className={`mt-0.5 min-w-[18px] w-[18px] h-[18px] rounded-full flex items-center justify-center shrink-0 ${featureIconBg}`}>
+                                    <Check className="w-3 h-3" />
                                 </div>
                                 <span>{feat}</span>
                             </li>
@@ -196,7 +196,7 @@ const PlanCard: React.FC<{ plan: Plan; isAnnual: boolean }> = ({ plan, isAnnual 
 
                 {/* Action Button */}
                 <button
-                    className={`w-full py-3 md:py-4 rounded-xl text-xs md:text-sm font-bold transition-all shadow-sm mt-auto ${buttonStyle} hover:scale-[1.02] active:scale-[0.98]`}
+                    className={`w-full py-4 rounded-xl text-sm font-bold transition-all shadow-sm mt-auto ${buttonStyle} hover:scale-[1.02] active:scale-[0.98]`}
                 >
                     {plan.priceLabel}
                 </button>
@@ -245,8 +245,8 @@ const Pricing: React.FC = () => {
             </div>
         </div>
 
-        {/* Plans Grid */}
-        <div className="grid grid-cols-2 gap-3 md:gap-8 items-stretch">
+        {/* Plans Grid - Responsive 1 col on mobile, 2 col on md */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
             {PLANS.map((plan) => (
                 <PlanCard key={plan.id} plan={plan} isAnnual={isAnnual} />
             ))}

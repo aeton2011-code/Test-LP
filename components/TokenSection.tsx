@@ -5,18 +5,18 @@ import {
     BarChart3, Calendar, Lightbulb, MessageSquare, 
     Layout, Search, Zap, Cpu, 
     Globe, Command, Sparkles,
-    FileText, TrendingUp, MonitorPlay
+    FileText, TrendingUp, MonitorPlay, Eye, Layers
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// --- Configuration Data ---
+// --- Configuration Data Based on Sadem Specs ---
 
 const CATEGORIES = [
     { 
-        id: 'content', 
+        id: 'creative', 
         label: 'صناعة المحتوى', 
-        subtitle: 'Content Engine',
-        desc: 'محرك لغوي يكتب بلهجتك. حول الأفكار إلى نصوص بيعية، سيناريوهات، وهوكات تخطف الانتباه.',
+        subtitle: 'Creative Writing',
+        desc: 'نصوص إعلانية وتسويقية بلهجة طبيعية. من الهوكات الخاطفة إلى وصف المنتجات المقنع.',
         icon: PenTool,
         color: 'from-purple-600 to-indigo-600',
         shadow: 'shadow-purple-500/20',
@@ -25,10 +25,10 @@ const CATEGORIES = [
         glow: 'shadow-[0_0_30px_-5px_rgba(168,85,247,0.4)]'
     },
     { 
-        id: 'analyze', 
+        id: 'analysis', 
         label: 'التحليل والتطوير', 
-        subtitle: 'Analytics & Growth',
-        desc: 'لا تخمن، حلل. افحص أداء إعلاناتك ومتجرك، واحصل على توصيات مبنية على بيانات.',
+        subtitle: 'Analysis & Development',
+        desc: 'افحص أداء إعلاناتك ومتجرك. اكتشف "خريطة الملل" ونقاط الضعف قبل إطلاق الحملة.',
         icon: BarChart3,
         color: 'from-emerald-600 to-teal-600',
         shadow: 'shadow-emerald-500/20',
@@ -37,10 +37,10 @@ const CATEGORIES = [
         glow: 'shadow-[0_0_30px_-5px_rgba(52,211,153,0.4)]'
     },
     { 
-        id: 'plan', 
+        id: 'planning', 
         label: 'التخطيط الإبداعي', 
-        subtitle: 'Creative Planner',
-        desc: 'نظم فوضى الإبداع. جداول محتوى شهرية، وأفكار متجددة تضمن لك الحضور الدائم.',
+        subtitle: 'Creative Planning',
+        desc: 'نظم فوضى الإبداع. جداول محتوى شهرية وأفكار متجددة مربوطة بالترندات الحالية.',
         icon: Lightbulb,
         color: 'from-blue-600 to-cyan-600',
         shadow: 'shadow-blue-500/20',
@@ -51,8 +51,8 @@ const CATEGORIES = [
     { 
         id: 'studio', 
         label: 'سديم ستديو', 
-        subtitle: 'Media Production',
-        desc: 'أدوات إنتاج مرئي وصوتي متكاملة. صور منتجات، فيديوهات، وتعليق صوتي بذكاء اصطناعي.',
+        subtitle: 'Sadem Studio',
+        desc: 'إنتاج مرئي وصوتي متكامل. حول صورك لفيديو، واصنع شخصيات تتحدث بلغتك.',
         icon: Video,
         color: 'from-orange-600 to-red-600',
         shadow: 'shadow-orange-500/20',
@@ -63,32 +63,33 @@ const CATEGORIES = [
 ];
 
 const TOOLS = [
-    // 1. Content Creation
-    { id: 1, title: "مولد الهوكات", desc: "جمل افتتاحية تخطف الانتباه", cat: "content", icon: Magnet },
-    { id: 2, title: "كاتب السكربتات", desc: "سيناريوهات إعلانية مقنعة", cat: "content", icon: FileText },
-    { id: 3, title: "وصف المنتجات", desc: "نصوص تبرز مميزات المنتج", cat: "content", icon: ShoppingBag },
-    { id: 4, title: "كاتب الصفحات", desc: "محتوى صفحات الهبوط", cat: "content", icon: Layout },
-    { id: 5, title: "الردود الجاهزة", desc: "ردود ذكية لخدمة العملاء", cat: "content", icon: MessageSquare },
+    // 1. Creative Writing (صناعة المحتوى)
+    { id: 1, title: "مولد الهوكات (Hook Gen)", desc: "توليد أول 3 ثوانٍ لجذب الانتباه (صدمة، فضول).", cat: "creative", icon: Magnet },
+    { id: 2, title: "كاتب السكربتات", desc: "سيناريوهات إعلانية بأطر عالمية (AIDA, PAS).", cat: "creative", icon: FileText },
+    { id: 3, title: "وصف المنتجات", desc: "وصف احترافي بشخصيات متعددة (المقنع، المبسط).", cat: "creative", icon: ShoppingBag },
+    { id: 4, title: "كاتب الصفحات (Bio)", desc: "محتوى 'من نحن' وسياسات المتجر والبايو.", cat: "creative", icon: Layout },
+    { id: 5, title: "مولد الردود", desc: "ردود احترافية على العملاء (رسمي، ودي، اعتذار).", cat: "creative", icon: MessageSquare },
 
-    // 2. Analysis & Development
-    { id: 6, title: "تحليل الإعلان", desc: "كشف نقاط الضعف", cat: "analyze", icon: Search },
-    { id: 7, title: "تحليل المتجر", desc: "تحسين تجربة المستخدم", cat: "analyze", icon: Globe },
-    { id: 8, title: "استراتيجية المنتج", desc: "خطة تطوير وتسويق", cat: "analyze", icon: TrendingUp },
-    { id: 9, title: "محلل السكربتات", desc: "تقييم جودة النصوص", cat: "analyze", icon: Zap },
+    // 2. Analysis (التحليل والتطوير)
+    { id: 6, title: "تحليل الإعلان (Ad Vision)", desc: "تقييم الفيديو وتقديم 'خريطة الملل' ونسبة النجاح.", cat: "analysis", icon: Eye },
+    { id: 7, title: "تحليل المتجر (Store Analyzer)", desc: "فحص تجربة المستخدم (UX) وعناصر الثقة.", cat: "analysis", icon: Globe },
+    { id: 8, title: "استراتيجية المنتج", desc: "تحديد التمركز (Positioning) والميزة التنافسية.", cat: "analysis", icon: TrendingUp },
+    { id: 9, title: "محلل السكربتات", desc: "اكتشاف نقاط الضعف في النص قبل التصوير.", cat: "analysis", icon: Search },
+    { id: 10, title: "محلل الحملات", desc: "قرارات مالية صارمة (إيقاف/زيادة) بناءً على ROAS.", cat: "analysis", icon: Zap },
 
-    // 3. Creative Planning
-    { id: 10, title: "مولد الأفكار", desc: "أفكار محتوى لا تنتهي", cat: "plan", icon: Sparkles },
-    { id: 11, title: "خطة المحتوى", desc: "جدول نشر شهري متكامل", cat: "plan", icon: Calendar },
+    // 3. Planning (التخطيط الإبداعي)
+    { id: 11, title: "محرك الأفكار", desc: "أفكار لا نهائية مربوطة بالترندات وطرق التصوير.", cat: "planning", icon: Sparkles },
+    { id: 12, title: "خطة المحتوى", desc: "جدول نشر شهري (ترفيهي، تعليمي، بيعي).", cat: "planning", icon: Calendar },
 
-    // 4. Sadem Studio
-    { id: 12, title: "ستديو الإعلانات", desc: "تصميم صور المنتجات", cat: "studio", icon: Cpu },
-    { id: 13, title: "محرك الفيديو", desc: "تحويل الصور إلى فيديو", cat: "studio", icon: MonitorPlay },
-    { id: 14, title: "محرك الشخصيات", desc: "أفاتار متحدث (AI)", cat: "studio", icon: Users },
-    { id: 15, title: "المعلق الصوتي", desc: "تحويل النص لصوت", cat: "studio", icon: Mic },
+    // 4. Studio (سديم ستديو)
+    { id: 13, title: "ستديو الإعلانات", desc: "دمج المنتج في خلفيات واقعية مع نصوص.", cat: "studio", icon: Layers },
+    { id: 14, title: "محرك الفيديو", desc: "تحويل صور المنتجات لفيديو سينمائي متحرك.", cat: "studio", icon: MonitorPlay },
+    { id: 15, title: "محرك الشخصيات", desc: "تحريك الصور بشكل واقعي وحقيقي", cat: "studio", icon: Users },
+    { id: 16, title: "المعلق الصوتي", desc: "Text-to-Speech بلهجات عربية واقعية جداً.", cat: "studio", icon: Mic },
 ];
 
 const TokenSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('content');
+  const [activeTab, setActiveTab] = useState('creative');
   const activeCategory = CATEGORIES.find(c => c.id === activeTab) || CATEGORIES[0];
   const filteredTools = TOOLS.filter(t => t.cat === activeTab);
 
@@ -104,7 +105,7 @@ const TokenSection: React.FC = () => {
             <div className="flex justify-center mb-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-zinc-400">
                     <Command size={12} />
-                    <span>قدرات النظام</span>
+                    <span>منظومة الأدوات</span>
                 </div>
             </div>
 
@@ -189,7 +190,6 @@ const TokenSection: React.FC = () => {
                                         {activeCategory.desc}
                                     </p>
                                 </div>
-                                {/* Removed Button Here */}
                             </div>
                         </div>
 

@@ -81,10 +81,10 @@ const Footer: React.FC<FooterProps> = ({ showCTA = true, onNavigate }) => {
                         onClick={() => handleNav('pricing')}
                         className="h-16 px-10 rounded-full bg-white text-black font-bold text-lg hover:bg-[#EDEDED] transition-all transform hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.2)] flex items-center justify-center gap-3"
                     >
-                        <span>ابدأ مجاناً</span>
+                        <span>اشترك الآن</span>
                         <ArrowUpRight size={20} />
                     </button>
-                    <p className="text-center text-xs text-[#6C6C70]">لا تحتاج بطاقة ائتمان</p>
+                    {/* No free trial note removed */}
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@ const Footer: React.FC<FooterProps> = ({ showCTA = true, onNavigate }) => {
                 </svg>
              </div>
              <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
-                المنصة الأولى لإدارة التسويق الرقمي بالذكاء الاصطناعي، مصممة خصيصاً للسوق السعودي.
+                المنصة الأولى لإدارة التسويق الرقمي بالذكاء الاصطناعي، مصممة خصيصاً للأسواق العالمية.
              </p>
              <div className="flex gap-4 mt-2">
                <SocialIcon icon={Twitter} />
@@ -144,7 +144,7 @@ const Footer: React.FC<FooterProps> = ({ showCTA = true, onNavigate }) => {
         
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-           <p className="text-[13px] text-gray-500">© 2026 Sadem Inc. Riyadh, Saudi Arabia.</p>
+           <p className="text-[13px] text-gray-500">© 2026 Sadem Inc. Global HQ.</p>
            <div className="flex gap-8 text-[13px] text-gray-500">
               <button onClick={() => handleNav('privacy')} className="hover:text-white transition-colors">سياسة الخصوصية</button>
               <button onClick={() => handleNav('terms')} className="hover:text-white transition-colors">شروط الاستخدام</button>

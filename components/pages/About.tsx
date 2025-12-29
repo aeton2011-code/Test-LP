@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -11,7 +10,7 @@ const About: React.FC = () => {
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
                 نبني عقلًا رقمياً.. <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary to-white">بقلب سعودي.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary to-white">بقلب عربي.</span>
             </h1>
         </div>
 
@@ -25,7 +24,7 @@ const About: React.FC = () => {
             </motion.p>
 
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-                ليس مجرد واجهة لـ GPT، بل نظام تشغيل تسويقي كامل تم تدريبه على ملايين البيانات من السوق السعودي. نحن نفهم الفرق بين "عرض خاص" و "تخفيضات نار"، ونعرف كيف نكتب إعلاناً ليوم التأسيس يختلف عن إعلان الجمعة البيضاء.
+                ليس مجرد واجهة لـ GPT، بل نظام تشغيل تسويقي كامل تم تدريبه على ملايين البيانات من السوق العربي والعالمي. نحن نفهم الفرق بين "عرض خاص" و "تخفيضات نار"، ونعرف كيف نكتب إعلاناً للمناسبات العالمية يختلف عن الإعلانات المحلية.
             </motion.p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-16 bg-white/5 md:bg-transparent rounded-3xl p-8 md:p-0 border md:border-none border-white/5">
@@ -39,7 +38,7 @@ const About: React.FC = () => {
                 </div>
                 <div className="text-center">
                     <h3 className="text-4xl font-bold text-white mb-2">100%</h3>
-                    <p className="text-sm">صنع في السعودية</p>
+                    <p className="text-sm">ابتكار عربي</p>
                 </div>
             </div>
 

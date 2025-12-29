@@ -5,51 +5,50 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative pt-32 md:pt-40 pb-20 overflow-visible min-h-[80vh] flex flex-col items-center justify-center font-sans">
+    <section className="relative pt-28 pb-10 md:pt-48 md:pb-16 overflow-visible flex flex-col items-center justify-start font-sans perspective-1000">
       
       {/* Refined Spotlight - Ambient & Clean */}
-      <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-primary/10 blur-[120px] rounded-full pointer-events-none opacity-50 z-0" />
-
-      <div className="container mx-auto max-w-[1280px] text-center relative z-10 flex flex-col items-center px-6">
+      <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-primary/20 blur-[120px] rounded-full pointer-events-none opacity-60 z-0" />
+      
+      <div className="container mx-auto max-w-7xl text-center relative z-10 flex flex-col items-center px-4 md:px-6">
         
-        {/* Headline - Sharper & High Contrast */}
+        {/* Headline - Optimized typography for single-line second sentence */}
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="text-4xl md:text-6xl lg:text-[80px] font-extrabold tracking-tight leading-[1.2] md:leading-[1.1] mb-6 md:mb-8 text-center max-w-6xl text-white drop-shadow-xl"
+          className="text-[22px] xs:text-2xl sm:text-4xl md:text-5xl lg:text-[64px] xl:text-[72px] font-extrabold tracking-tight leading-[1.3] md:leading-[1.15] mb-6 md:mb-8 text-center w-full max-w-full md:max-w-6xl text-white drop-shadow-2xl mx-auto"
         >
-          <span className="block">وكالتك التسويقية الكاملة..</span>
-          <span className="block text-transparent bg-clip-text bg-gradient-to-b from-blue-400 via-white to-white/70">
-            بدون فريق، بدون وكالة.
+          <span className="block mb-1 md:mb-2 text-white">هبوط المبيعات…</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-100 to-blue-400 pb-2 leading-tight md:whitespace-nowrap">
+            يبدأ من قرار، محتوى وتحليل خاطئ.
           </span>
         </motion.h1>
 
-        {/* Sub-headline */}
+        {/* Sub-headline - Better Readability */}
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-           className="flex flex-col items-center max-w-2xl mx-auto"
+           className="flex flex-col items-center max-w-3xl mx-auto mb-8 md:mb-10"
         >
-            <p className="text-base md:text-2xl text-zinc-400 leading-relaxed font-medium px-4">
-                سديم — خلك دايم خطوة قدّام
+            <p className="text-base md:text-xl lg:text-2xl text-zinc-300 leading-relaxed font-normal px-2 md:px-4">
+                سديم يختصر عليك جيش من الموظفين، اكتب محتواك، صمم اعلاناتك، حلل متجرك، أنشئ فيديوهاتك وأكثر ... <span className="text-white font-bold decoration-primary/50 underline-offset-4 border-b-2 border-primary/50 pb-0.5">بضغطة زر.</span>
             </p>
         </motion.div>
 
-        {/* CTAs - Unified Primary */}
+        {/* CTAs - High Conversion Design */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center gap-5 mt-10 md:mt-12 mb-8 relative z-30 w-full sm:w-auto px-6 sm:px-0"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 w-full sm:w-auto relative z-30"
         >
-          {/* Primary CTA */}
-          <button className="group relative inline-flex h-14 md:h-16 w-full sm:w-auto items-center justify-center overflow-hidden rounded-full bg-primary px-8 md:px-12 font-bold text-white shadow-[0_0_50px_-10px_rgba(0,108,217,0.4)] transition-all hover:scale-[1.02] hover:shadow-[0_0_70px_-15px_rgba(0,108,217,0.6)]">
-            <span className="absolute inset-0 -z-10 animate-shimmer bg-[linear-gradient(110deg,#006CD9,45%,#3B82F6,55%,#006CD9)] bg-[length:200%_100%]" />
+          <button className="group relative inline-flex h-12 md:h-14 lg:h-16 w-full sm:w-auto items-center justify-center overflow-hidden rounded-full bg-white text-black px-8 md:px-10 lg:px-12 font-bold shadow-[0_0_50px_-10px_rgba(255,255,255,0.3)] transition-all hover:scale-[1.02] hover:bg-gray-100 ring-4 ring-white/10">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             <div className="flex items-center gap-3 relative z-10">
-                <span className="text-base md:text-lg tracking-tight">ابدأ التجربة المجانية</span>
-                <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+                <span className="text-base md:text-lg tracking-tight">اشترك الآن</span>
+                <ArrowLeft size={20} className="md:w-5 md:h-5 group-hover:-translate-x-1 transition-transform" />
             </div>
           </button>
         </motion.div>

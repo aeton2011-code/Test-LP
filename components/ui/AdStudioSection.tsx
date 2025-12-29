@@ -31,7 +31,7 @@ const SCENARIOS = [
 
 const AdStudioSection: React.FC = () => {
     return (
-        <section className="py-24 px-6 bg-[#050505] overflow-hidden" id="ad-studio">
+        <section className="py-20 md:py-32 px-6 bg-[#050505] overflow-hidden" id="ad-studio">
              <div className="container mx-auto max-w-[1100px] relative z-10">
                 
                 {/* Header */}

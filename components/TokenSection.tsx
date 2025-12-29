@@ -94,7 +94,7 @@ const TokenSection: React.FC = () => {
   const filteredTools = TOOLS.filter(t => t.cat === activeTab);
 
   return (
-    <section className="w-full py-24 relative bg-[#030304] overflow-hidden" id="layers">
+    <section className="w-full py-20 md:py-32 relative bg-[#030304] overflow-hidden" id="layers">
         
         {/* Subtle Backdrop */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-white/[0.02] to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -109,37 +109,39 @@ const TokenSection: React.FC = () => {
                 </div>
             </div>
 
-            {/* 1. TOP NAVIGATION (The Dock) */}
-            <div className="flex justify-center mb-12">
-                <div className="p-1.5 bg-[#0E0E10] border border-white/10 rounded-2xl flex items-center gap-1 shadow-2xl overflow-x-auto max-w-full scrollbar-hide">
-                    {CATEGORIES.map((cat) => {
-                        const isActive = activeTab === cat.id;
-                        return (
-                            <button
-                                key={cat.id}
-                                onClick={() => setActiveTab(cat.id)}
-                                className={`relative px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 flex items-center gap-2.5 whitespace-nowrap min-w-[120px] justify-center ${
-                                    isActive ? 'text-white' : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/5'
-                                }`}
-                            >
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="navPill"
-                                        className={`absolute inset-0 rounded-xl bg-[#1A1A1A] border border-white/10 ${cat.glow}`}
-                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                    />
-                                )}
-                                
-                                <span className="relative z-10 flex items-center gap-2">
-                                    <cat.icon 
-                                        size={16} 
-                                        className={`transition-colors duration-300 ${isActive ? cat.accent : 'grayscale opacity-50'}`} 
-                                    />
-                                    <span>{cat.label}</span>
-                                </span>
-                            </button>
-                        );
-                    })}
+            {/* 1. TOP NAVIGATION (The Dock - Updated for Mobile Grid) */}
+            <div className="flex justify-center mb-8 md:mb-12 w-full">
+                <div className="p-1.5 bg-[#0E0E10] border border-white/10 rounded-[24px] md:rounded-full w-full md:w-auto shadow-2xl mx-auto">
+                    <div className="grid grid-cols-2 md:flex md:items-center gap-2 md:gap-1">
+                        {CATEGORIES.map((cat) => {
+                            const isActive = activeTab === cat.id;
+                            return (
+                                <button
+                                    key={cat.id}
+                                    onClick={() => setActiveTab(cat.id)}
+                                    className={`relative px-3 py-3 md:px-5 md:py-2.5 rounded-xl md:rounded-full text-xs md:text-sm font-bold transition-all duration-300 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-2.5 whitespace-nowrap min-h-[60px] md:min-h-0 ${
+                                        isActive ? 'text-white' : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/5'
+                                    }`}
+                                >
+                                    {isActive && (
+                                        <motion.div
+                                            layoutId="navPill"
+                                            className={`absolute inset-0 rounded-xl md:rounded-full bg-[#1A1A1A] border border-white/10 ${cat.glow}`}
+                                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                        />
+                                    )}
+                                    
+                                    <span className="relative z-10 flex flex-col md:flex-row items-center gap-2">
+                                        <cat.icon 
+                                            size={16} 
+                                            className={`transition-colors duration-300 ${isActive ? cat.accent : 'grayscale opacity-50'}`} 
+                                        />
+                                        <span>{cat.label}</span>
+                                    </span>
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
 
@@ -195,26 +197,26 @@ const TokenSection: React.FC = () => {
 
                         {/* RIGHT: Tools Grid (Tiles) */}
                         <div className="lg:col-span-8">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full content-start">
+                            <div className="grid grid-cols-2 gap-3 md:gap-4 h-full content-start">
                                 {filteredTools.map((tool, i) => (
                                     <motion.div
                                         key={tool.id}
                                         initial={{ opacity: 0, x: 20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: i * 0.05 }}
-                                        className="group relative bg-[#0E0E10] hover:bg-[#161616] border border-white/5 hover:border-white/10 rounded-2xl p-4 cursor-pointer transition-all duration-300 flex items-start gap-4 overflow-hidden h-[100px]"
+                                        className="group relative bg-[#0E0E10] hover:bg-[#161616] border border-white/5 hover:border-white/10 rounded-xl md:rounded-2xl p-3 md:p-4 cursor-pointer transition-all duration-300 flex flex-col md:flex-row items-start gap-3 md:gap-4 overflow-hidden h-auto md:h-[100px]"
                                     >
                                         {/* Icon Box */}
-                                        <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300 ${activeCategory.bgAccent} ${activeCategory.accent}`}>
-                                            <tool.icon size={18} strokeWidth={1.5} />
+                                        <div className={`w-8 h-8 md:w-9 md:h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300 ${activeCategory.bgAccent} ${activeCategory.accent}`}>
+                                            <tool.icon size={16} className="md:w-[18px]" strokeWidth={1.5} />
                                         </div>
 
                                         {/* Text Info */}
-                                        <div className="flex-1">
-                                            <h4 className="text-sm font-bold text-white mb-1 group-hover:text-primary transition-colors">
+                                        <div className="flex-1 w-full">
+                                            <h4 className="text-xs md:text-sm font-bold text-white mb-1 group-hover:text-primary transition-colors truncate w-full">
                                                 {tool.title}
                                             </h4>
-                                            <p className="text-[11px] text-zinc-500 group-hover:text-zinc-400 transition-colors leading-relaxed line-clamp-2">
+                                            <p className="text-[10px] md:text-[11px] text-zinc-500 group-hover:text-zinc-400 transition-colors leading-relaxed line-clamp-2">
                                                 {tool.desc}
                                             </p>
                                         </div>

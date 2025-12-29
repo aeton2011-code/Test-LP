@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 w-full sm:w-auto relative z-30"
         >
-          <button className="group relative inline-flex h-12 md:h-14 lg:h-16 w-full sm:w-auto items-center justify-center overflow-hidden rounded-full bg-white text-black px-8 md:px-10 lg:px-12 font-bold shadow-[0_0_50px_-10px_rgba(255,255,255,0.3)] transition-all hover:scale-[1.02] hover:bg-gray-100 ring-4 ring-white/10">
+          <button className="group relative inline-flex h-12 md:h-14 lg:h-16 w-auto items-center justify-center overflow-hidden rounded-full bg-white text-black px-8 md:px-10 lg:px-12 font-bold shadow-[0_0_50px_-10px_rgba(255,255,255,0.3)] transition-all hover:scale-[1.02] hover:bg-gray-100 ring-4 ring-white/10">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             <div className="flex items-center gap-3 relative z-10">
                 <span className="text-base md:text-lg tracking-tight">اشترك الآن</span>

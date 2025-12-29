@@ -22,7 +22,7 @@ const FeatureBlock = ({ title, desc, icon: Icon, items }: any) => (
 
 const FeaturesPage: React.FC = () => {
   return (
-    <section className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+    <section className="pt-28 md:pt-32 pb-16 md:pb-20 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">مميزات سديم</h1>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto">

@@ -34,7 +34,7 @@ const UpdateItem = ({ version, date, title, changes, current }: any) => (
 
 const Updates: React.FC = () => {
   return (
-    <section className="pt-32 pb-20 px-6 max-w-5xl mx-auto" dir="rtl">
+    <section className="pt-28 md:pt-32 pb-16 md:pb-20 px-6 max-w-5xl mx-auto" dir="rtl">
         <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">سجل التحديثات</h1>
             <p className="text-text-secondary text-lg">

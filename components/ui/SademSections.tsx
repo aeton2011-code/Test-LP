@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Star, Sparkles, Cpu, Brain, Target, Lightbulb, Radio, CheckCircle, XCircle } from 'lucide-react';
 
@@ -61,7 +60,7 @@ export const WhySadem: React.FC = () => {
                 </div>
 
                 {/* --- 1. THE EXPERTISE GRID (Expert Logic) --- */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-20">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-20">
                     
                     {[
                         { icon: Target, title: "عقلية المعلن", desc: "بنية إعلانية مثبتة لزيادة معدل النقر (CTR).", color: "blue" },
@@ -69,12 +68,12 @@ export const WhySadem: React.FC = () => {
                         { icon: Brain, title: "تسويق نفسي", desc: "محفزات نفسية (FOMO) لدفع العميل للشراء.", color: "purple" },
                         { icon: Lightbulb, title: "حارس الهوية", desc: "صوت علامتك (Tone of Voice) ثابت ومحترف.", color: "orange" }
                     ].map((item, idx) => (
-                         <div key={idx} className={`bg-[#0E0E10] border border-white/5 rounded-3xl p-6 relative overflow-hidden group hover:border-${item.color}-500/30 transition-all hover:-translate-y-1 duration-300`}>
-                            <div className={`w-12 h-12 rounded-xl bg-${item.color}-500/10 flex items-center justify-center text-${item.color}-400 mb-4 relative z-10`}>
-                                <item.icon size={24} />
+                         <div key={idx} className={`bg-[#0E0E10] border border-white/5 rounded-3xl p-5 md:p-6 relative overflow-hidden group hover:border-${item.color}-500/30 transition-all hover:-translate-y-1 duration-300`}>
+                            <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-${item.color}-500/10 flex items-center justify-center text-${item.color}-400 mb-3 md:mb-4 relative z-10`}>
+                                <item.icon size={20} className="md:w-6 md:h-6" />
                             </div>
-                            <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
-                            <p className="text-sm text-text-secondary leading-relaxed">
+                            <h3 className="text-white font-bold text-sm md:text-lg mb-1 md:mb-2">{item.title}</h3>
+                            <p className="text-[11px] md:text-sm text-text-secondary leading-relaxed">
                                  {item.desc}
                             </p>
                         </div>
@@ -83,41 +82,42 @@ export const WhySadem: React.FC = () => {
                 </div>
 
                 {/* --- 2. HEAD TO HEAD COMPARISON (High Contrast) --- */}
-                <div className="relative rounded-[32px] overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-0 border border-white/10 shadow-2xl">
+                {/* Changed to grid-cols-2 on all screens */}
+                <div className="relative rounded-[20px] md:rounded-[32px] overflow-hidden grid grid-cols-2 gap-0 border border-white/10 shadow-2xl">
                     
                     {/* Sadem Side (Winner) */}
-                    <div className="p-8 md:p-14 bg-gradient-to-br from-[#006CD9]/10 to-[#030304] relative border-b md:border-b-0 md:border-l border-white/10 z-10">
+                    <div className="p-4 md:p-14 bg-gradient-to-br from-[#006CD9]/10 to-[#030304] relative border-l border-white/10 z-10">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[80px] rounded-full" />
                         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05]" />
                         
                         <div className="relative z-10">
-                            <div className="flex items-center gap-3 mb-10">
-                                <div className="p-2 bg-primary rounded-lg shadow-lg shadow-primary/30">
-                                     <Sparkles size={20} className="text-white" />
+                            <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3 mb-6 md:mb-10">
+                                <div className="p-1.5 md:p-2 bg-primary rounded-lg shadow-lg shadow-primary/30">
+                                     <Sparkles size={16} className="text-white md:w-5 md:h-5" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white">نظام سديم (Sadem OS)</h3>
+                                <h3 className="text-sm md:text-2xl font-bold text-white">نظام سديم</h3>
                             </div>
                             
-                            <div className="space-y-8">
-                                <div className="flex gap-4 items-start group">
-                                    <CheckCircle size={24} className="text-green-500 shrink-0 mt-1" />
+                            <div className="space-y-4 md:space-y-8">
+                                <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start group">
+                                    <CheckCircle size={16} className="text-green-500 shrink-0 mt-0.5 md:mt-1 md:w-6 md:h-6" />
                                     <div>
-                                        <h4 className="text-xl font-bold text-white group-hover:text-primary transition-colors">صانع قرار.</h4>
-                                        <p className="text-text-secondary mt-1">ما يعطيك خيارات تحيرك، يعطيك الزبدة والقرار النهائي.</p>
+                                        <h4 className="text-xs md:text-xl font-bold text-white group-hover:text-primary transition-colors">صانع قرار.</h4>
+                                        <p className="text-text-secondary mt-1 text-[10px] md:text-base leading-relaxed">ما يعطيك خيارات تحيرك، يعطيك الزبدة والقرار النهائي.</p>
                                     </div>
                                 </div>
-                                <div className="flex gap-4 items-start group">
-                                    <CheckCircle size={24} className="text-green-500 shrink-0 mt-1" />
+                                <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start group">
+                                    <CheckCircle size={16} className="text-green-500 shrink-0 mt-0.5 md:mt-1 md:w-6 md:h-6" />
                                     <div>
-                                        <h4 className="text-xl font-bold text-white group-hover:text-primary transition-colors">مدير إبداعي.</h4>
-                                        <p className="text-text-secondary mt-1">يغنيك عن المصمم والكاتب والمونتيير، يجهز حملتك كاملة بضغطة زر.</p>
+                                        <h4 className="text-xs md:text-xl font-bold text-white group-hover:text-primary transition-colors">مدير إبداعي.</h4>
+                                        <p className="text-text-secondary mt-1 text-[10px] md:text-base leading-relaxed">يغنيك عن المصمم والكاتب والمونتيير.</p>
                                     </div>
                                 </div>
-                                <div className="flex gap-4 items-start group">
-                                    <CheckCircle size={24} className="text-green-500 shrink-0 mt-1" />
+                                <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start group">
+                                    <CheckCircle size={16} className="text-green-500 shrink-0 mt-0.5 md:mt-1 md:w-6 md:h-6" />
                                     <div>
-                                        <h4 className="text-xl font-bold text-white group-hover:text-primary transition-colors">مستشار نمو.</h4>
-                                        <p className="text-text-secondary mt-1">يحلل تجربة عميلك داخل المتجر، ويعلمك وين الفلوس قاعدة تضيع.</p>
+                                        <h4 className="text-xs md:text-xl font-bold text-white group-hover:text-primary transition-colors">مستشار نمو.</h4>
+                                        <p className="text-text-secondary mt-1 text-[10px] md:text-base leading-relaxed">يعلمك وين الفلوس قاعدة تضيع.</p>
                                     </div>
                                 </div>
                             </div>
@@ -125,34 +125,34 @@ export const WhySadem: React.FC = () => {
                     </div>
 
                     {/* Generic AI Side (Loser) */}
-                    <div className="p-8 md:p-14 bg-[#0A0A0A] relative grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                         <div className="flex items-center gap-3 mb-10 opacity-60">
-                            <div className="p-2 bg-white/10 rounded-lg">
-                                <Cpu size={20} />
+                    <div className="p-4 md:p-14 bg-[#0A0A0A] relative grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                         <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3 mb-6 md:mb-10 opacity-60">
+                            <div className="p-1.5 md:p-2 bg-white/10 rounded-lg">
+                                <Cpu size={16} className="md:w-5 md:h-5" />
                             </div>
-                            <h3 className="text-2xl font-bold text-zinc-300">الذكاء الاصطناعي العادي</h3>
+                            <h3 className="text-sm md:text-2xl font-bold text-zinc-300">الذكاء العادي</h3>
                         </div>
                         
-                        <div className="space-y-8 opacity-60">
-                            <div className="flex gap-4 items-start">
-                                <XCircle size={24} className="text-zinc-600 shrink-0 mt-1" />
+                        <div className="space-y-4 md:space-y-8 opacity-60">
+                            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start">
+                                <XCircle size={16} className="text-zinc-600 shrink-0 mt-0.5 md:mt-1 md:w-6 md:h-6" />
                                 <div>
-                                    <h4 className="text-xl font-bold text-zinc-400">كاتب فقط.</h4>
-                                    <p className="text-zinc-600 mt-1">يكتب نصوص عادية وما تبيع ولا تجذب العميل</p>
+                                    <h4 className="text-xs md:text-xl font-bold text-zinc-400">كاتب فقط.</h4>
+                                    <p className="text-zinc-600 mt-1 text-[10px] md:text-base leading-relaxed">يكتب نصوص عادية وما تبيع ولا تجذب العميل</p>
                                 </div>
                             </div>
-                            <div className="flex gap-4 items-start">
-                                <XCircle size={24} className="text-zinc-600 shrink-0 mt-1" />
+                            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start">
+                                <XCircle size={16} className="text-zinc-600 shrink-0 mt-0.5 md:mt-1 md:w-6 md:h-6" />
                                 <div>
-                                    <h4 className="text-xl font-bold text-zinc-400">عشوائية الاقتراحات.</h4>
-                                    <p className="text-zinc-600 mt-1">يعطيك اقتراحات عشوائية ما تحقق الهدف "وش أختار؟".</p>
+                                    <h4 className="text-xs md:text-xl font-bold text-zinc-400">عشوائية.</h4>
+                                    <p className="text-zinc-600 mt-1 text-[10px] md:text-base leading-relaxed">يعطيك اقتراحات عشوائية ما تحقق الهدف.</p>
                                 </div>
                             </div>
-                            <div className="flex gap-4 items-start">
-                                <XCircle size={24} className="text-zinc-600 shrink-0 mt-1" />
+                            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start">
+                                <XCircle size={16} className="text-zinc-600 shrink-0 mt-0.5 md:mt-1 md:w-6 md:h-6" />
                                 <div>
-                                    <h4 className="text-xl font-bold text-zinc-400">منفذ أوامر.</h4>
-                                    <p className="text-zinc-600 mt-1">هدفه يجمالك وتكون راضي عنه ما يبادر ولا يحقق النتائج</p>
+                                    <h4 className="text-xs md:text-xl font-bold text-zinc-400">منفذ أوامر.</h4>
+                                    <p className="text-zinc-600 mt-1 text-[10px] md:text-base leading-relaxed">هدفه يجمالك وتكون راضي عنه ما يبادر.</p>
                                 </div>
                             </div>
                         </div>

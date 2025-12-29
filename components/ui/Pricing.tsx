@@ -209,7 +209,7 @@ const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section className="w-full pt-32 pb-24 px-4 bg-[#050505] relative overflow-hidden" id="pricing">
+    <section className="w-full pt-28 md:pt-32 pb-20 md:pb-24 px-4 bg-[#050505] relative overflow-hidden" id="pricing">
       
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />

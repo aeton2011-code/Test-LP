@@ -12,7 +12,7 @@ const HelpCenter: React.FC = () => {
   ];
 
   return (
-    <section className="pt-32 pb-20 px-6 max-w-5xl mx-auto">
+    <section className="pt-28 md:pt-32 pb-16 md:pb-20 px-6 max-w-5xl mx-auto">
         <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">كيف نقدر نساعدك؟</h1>
             
